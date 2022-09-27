@@ -1,0 +1,45 @@
+
+<div class="container" *ngIf="projects && projects.length">
+    <div class="row justify-content-between ">
+        <div class="col-5 offset-3 mt-1">
+            <label for="input">Cauta</label>
+            <input [(ngModel)]='projectSearchText' type="text" placeholder="Filtrare">
+        </div>
+        <div class="col-4 mt-1">
+            <h5 [hidden]='!projectSearchText'><em>Filtrare dupa: {{ projectSearchText }} </em></h5>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-white">
+        <div class="col-3 mt-2">
+            <button (click)='selectCategory()'
+                [ngClass]="(!selectedCategory) ? 'btn-info' : 'btn-outline-info'" 
+                class="btn btn-block btn-info">Toate Categoriile</button>
+            <button *ngFor="let category of getCategories()" 
+                (click)='selectCategory(category)'
+                [ngClass]="(selectedCategory && category.id==selectedCategory.id) ? 'btn-info' : 'btn-outline-info'"
+                class="btn btn-block btn-info"> {{category.name}} </button>
+        </div>
+        <div class="col-9 mt-1">
+            <div *ngFor="let project of getProjects()" 
+                class="card card-inverse card-outline-default m-2"
+                style="background-color: #555; border-color: #555;">
+                    <h4 class="card-header">
+                        {{project.name}}
+                        <span class="float-right badge badge-default">
+                            {{project.code}}
+                            <span class="float-right ml-3" style="margin-right: -1rem; margin-top: -0.75rem;">
+                                <button (click)='delete(project)'
+                                    type="button" class="btn btn-outline-secondary btn-sm text-white">x</button> </span>
+                        </span>
+                    </h4>
+                    <div class="card-text p-2">{{project.description}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container" *ngIf="!(projects && projects.length)">
+    <h4><em>Nu exista proiecte!</em></h4>
+</div>
+
