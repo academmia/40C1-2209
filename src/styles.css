@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* @import '~bootstrap/dist/css/bootstrap.min.css'; */
+
+div.card.card-inverse {
+    color: #fff;
+    padding: 1em;
+}
+
+div.card-block {
+    padding: 1em;
+}
+
+.form-group > .form-control.ng-invalid {
+    border-color: #d9534f;
+}
