@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="mt-2" style="width: 100%">
+
+        <div class="card mb-4" style="min-height: 210px">
+            <div class="card-header">
+                View Details
+                <button (click)='noinfo()' type="button" 
+                    class="btn btn-outline-secondary btn-sm float-right">x</button>
+            </div>
+            <div class="card-block">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+        <table class="table table-inverse"  [hidden]='editVisible'>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Owner</th>
+                    <th>Deadline</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Total items: </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td> <button [routerLink]="['view/1']">View Task Detail</button> </td>
+                    <td> <button [routerLink]="['project/10']">View Project Detail</button> </td>
+                    <td> <button  (click)='editVisible=!editVisible'
+                            [routerLink]="[{outlets: {edittask: ['edit'] }}]">Edit Project</button> </td>
+                </tr>
+                <tr>
+                    <td>Subject</td>
+                    <td>Description</td>
+                    <td>Status</td>
+                    <td>Owner</td>
+                    <td>Deadline</td>
+                </tr>
+            </tbody>
+        </table>
+        <div [hidden]='!editVisible' class="card card-inverse" style="background-color: #333; border-color: #333;">
+            <div class="card-block">
+                <button type="button" (click)='editVisible=!editVisible'
+                    class="btn btn-outline-secondary btn-sm float-right">x</button>
+                    <router-outlet name="edittask"></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
