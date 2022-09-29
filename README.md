@@ -1,27 +1,58 @@
-# TestOne
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+# 13_01x Incarcarea datelor prin Http - proiecte
 
-## Development server
+- Vom accesa datele de pe un server API (json-server portul 3000)
+- Vom incarca lista de proiecte si categoriile de pe server 
+- Modificam serviciile de date (proiecte si categorii) 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 1. Pornim serverul de date:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Terminal (folderul apiserver):
 
-## Build
+- (daca nu este instalat) rulam:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+``` 
+    > npm install -g json-server 
+```
 
-## Running unit tests
+- pornim serverul api: 
+```
+> json-server -d 100 db.json 
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> vom avea un server pe portul 3000 cu urmatoarele resurse:
+```
+    http://localhost:3000/projects
+    http://localhost:3000/tasks
+    http://localhost:3000/statuses
+    http://localhost:3000/users
+    http://localhost:3000/categories
+```
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> ## 2. Incarcam modulul HttpModule 
 
-## Further help
+>> app.module.ts:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+> ## 3. Instalam RxJS (daca nu este prezent in package.json)
+
+`npm i rxjs@6.6.7`
+
+
+
+> ## 4. In serviciul ProjectService utilizam HttpClient:
+
+- libraria considera implicit ca interogam un API Server care raspunde cu date in format JSON.
+
+>> projects/project.service.ts:
+
+
+
+## 5. Modificam componenta ProjectList
+
+>> projects/project-list.component.ts:
