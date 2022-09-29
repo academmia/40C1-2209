@@ -1,0 +1,11 @@
+
+getTasksByProjectId(projectid: number): Observable<ITask[]> {
+
+        let params = new URLSearchParams();
+        params.set('project_id', projectid);
+
+        return this._http.get(this.taskApi, { search: params })
+            .map( (response: Response) => <ITask[]>response.json() )
+            .do( data => console.log('getTasksByProjectId: ' + JSON.stringify(data)) )
+            .catch(this.handleError);
+    }
