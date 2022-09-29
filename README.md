@@ -1,4 +1,4 @@
-# Crearea unui nou proiect Angular5 folosind angular-cli
+# Crearea unui nou proiect Angular folosind angular-cli
 
 - vom crea proiect nou
 - vom adauga Bootstrap4 CSS Framework
