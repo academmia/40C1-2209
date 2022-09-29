@@ -1,0 +1,18 @@
+    createForm() {
+        this.taskForm = this.formBuilder.group({
+            subject: ['', Validators.required],              //FormControl
+            description: ['', Validators.required],
+            status: 'New',
+            owner_id: 10,
+            owner_name: '',
+            project_id: null,
+            project_code: '',
+            asignee_id: 10,
+            asignee_name: '',
+            created_date: '',
+            start_date: '',
+            end_date: '' 
+        })
+    }
+
+    

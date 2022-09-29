@@ -1,0 +1,27 @@
+<div class="container">
+  <form novalidate #formProjectEdit="ngForm">
+      <div class="form-group">
+          <label for="name">Name</label>
+          <input name="name" [(ngModel)]="project.name" #name="ngModel"
+              type="text" class="form-control" id="name" required>
+            <code [hidden]="name.valid || name.pristine" 
+              class="form-control-feedback">Denumirea este obligatorie</code>
+      </div>
+      <div class="form-group">
+          <label for="description">Description</label>
+          <input name="description" [(ngModel)]="project.description" 
+              type="text" class="form-control" id="description">
+      </div>
+      <div class="form-group">
+          <label for="power">Category</label>
+          <select class="form-control" id="category" name="category" required 
+              [(ngModel)]="project.category_id">
+              <option *ngFor="let category of categories" 
+              [value]="category.id">{{category.name}}</option>
+          </select>
+      </div>      
+    <button (click)="onSubmit()" [disabled]="!formProjectEdit.form.valid"
+        type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+
