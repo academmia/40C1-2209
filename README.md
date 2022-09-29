@@ -1,34 +1,27 @@
-# Crearea unui nou proiect Angular folosind angular-cli
+# StarterOne
 
-- vom crea proiect nou
-- vom adauga Bootstrap4 CSS Framework
-- adauga mock-up data (serviciu angular)
-- inject serviciu in componenta App si afisare date in lista
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
+## Development server
 
----
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## 1. Instalare/Update Angular CLI
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## 2. Creare proiect
+## Build
 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## 3. Modificam app.component si verificam reload-ul in browser
+## Running unit tests
 
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## 4. Instalam Bootstrap 4 si FontAwesome (4.7.0) si importam css-ul in aplicatie
+## Running end-to-end tests
 
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## 5. Adauga mock-up data (serviciu angular)
+## Further help
 
-
-## 6. Importam datele din db.json
-
-
-## 7. Inregistram un provider pentru acest serviciu 
-
-
-## 8. Utilizam serviciul in componenta _app_
-
-
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
