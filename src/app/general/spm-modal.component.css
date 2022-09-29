@@ -1,0 +1,31 @@
+.dialog-container {
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    overflow: scroll;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+}
+
+.dialog-container > div {
+    position: relative;
+    width: 90%;
+    max-width: 60%;
+    min-width: 400px;
+    min-height: 25px;
+    margin: 10% auto;
+    z-index: 99999;
+    padding: 16px 16px 0;
+}
+
+.dialog-container .modal-header {
+    background-color: #666;
+    color: #cdcdcd;
+}
+
+.dialog-container .modal-footer {
+    border-color: #aaa;
+}
