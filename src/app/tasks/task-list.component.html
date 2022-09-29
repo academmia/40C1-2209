@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="mt-2" style="width: 100%">
+
+        <div class="card mb-4" style="min-height: 210px">
+            <div class="card-header">
+                View Details
+                <button (click)='noinfo()' type="button" 
+                    class="btn btn-outline-secondary btn-sm float-right">x</button>
+            </div>
+            <div class="card-block">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+        <table class="table table-inverse"  [hidden]='editVisible'>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Owner</th>
+                    <th>Deadline</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Total items: </th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr *ngFor="let task of tasks | async ">
+                    <td>{{task.subject}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.status}}</td>
+                    <td>{{task.owner_name}}</td>
+                    <td>{{task.end_date | date:'dd/MM/yyyy'}}</td>
+                    <td width="130">
+                        <button type="button" (click)='viewTaskDetails(task.id)' class="btn btn-outline-secondary btn-sm">
+                            <i class="fa fa-list-alt"></i> </button>
+                        <button type="button" (click)='viewProjectDetails(task.project_id)' class="btn btn-outline-secondary btn-sm ">
+                            <i class="fa fa-th-large"></i> </button>
+                        <button type="button" (click)='editTask(task.id)' class="btn btn-outline-secondary btn-sm">
+                            <i class="fa fa-pencil-square-o"></i> </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div [hidden]='!editVisible' class="card card-inverse" style="background-color: #333; border-color: #333;">
+            <div class="card-block">
+                <button type="button" (click)='closeEdit()'
+                    class="btn btn-outline-secondary btn-sm float-right">x</button>
+                    <router-outlet name="edittask"></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
